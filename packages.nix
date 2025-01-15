@@ -52,7 +52,7 @@
     syntaxHighlighting.enable = true;
     ohMyZsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = ["git"];
     };
     promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     shellAliases = {
@@ -65,5 +65,4 @@
     thunar-archive-plugin
     thunar-volman
   ];
-
 }
