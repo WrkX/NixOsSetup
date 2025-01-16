@@ -15,6 +15,4 @@
       fsType = "ntfs-3g";
       options = [ "rw" "uid=1000" ];
     };
-
-
 }
