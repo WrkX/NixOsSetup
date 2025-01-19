@@ -7,6 +7,8 @@
       ./nvidia.nix
       ./storage.nix
       ./packages.nix
+      ./packages_misc.nix
+      ./packages_work.nix
       ./system.nix
     ];
 

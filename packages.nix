@@ -3,45 +3,33 @@
 {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    pkgs.git
-    pkgs.kitty
-    pkgs.waybar
-    pkgs.lxqt.lxqt-policykit
-    pkgs.xfce.thunar
-    pkgs.kdePackages.kate
     pkgs.discord-canary
-    pkgs.ntfs3g
-    pkgs.zed-editor
-    pkgs.hyprpaper
-    pkgs.networkmanagerapplet
-    pkgs.hyprcursor
     pkgs.dunst
+    pkgs.fastfetch
+    pkgs.ghostty
     pkgs.goverlay
-    pkgs.neofetch
+    pkgs.heroic
+    pkgs.hyprcursor
+    pkgs.hyprpaper
+    pkgs.hyprshot
+    pkgs.kdePackages.kate
+    pkgs.kitty
+    pkgs.libnotify
+    pkgs.lxqt.lxqt-policykit
+    pkgs.networkmanagerapplet
+    pkgs.ntfs3g
     pkgs.pamixer
     pkgs.pavucontrol
-    pkgs.protonup-qt
-    pkgs.alejandra
-    (pkgs.rofi.override { plugins = [ pkgs.rofi-games ]; })
-    pkgs.stow
-    pkgs.teams-for-linux
-    pkgs.heroic
-    pkgs.wlogout
-    pkgs.winetricks
-    pkgs.killall
-    pkgs.hyprshot
-    pkgs.unar
-    pkgs.zsh-powerlevel10k
-    pkgs.yazi
-    pkgs.python3Full
-    pkgs.libgccjit
-    pkgs.whitesur-cursors
-    pkgs.libnotify
     pkgs.playerctl
-    pkgs.neovim
+    pkgs.protonplus
+    pkgs.waybar
+    pkgs.winetricks
     pkgs.wineWowPackages.waylandFull
-    #(pkgs.callPackage packages/hyprswitch/hyprswitch.nix {})
+    pkgs.wlogout
+    pkgs.xfce.thunar
+    (pkgs.rofi.override { plugins = [ pkgs.rofi-games ]; })
     (pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/WrkX/nixpkgs/refs/heads/master/pkgs/by-name/ga/gamescope/gamescope.nix") {})
+    (pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/WrkX/nixpkgs/refs/heads/master/pkgs/by-name/hy/hyprswitch/package.nix") {})#packages/hyprswitch/package.nix {})
     #(pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/nani8ot/nixpkgs/refs/heads/master/nixos/modules/config/xdg/portals/termfilechooser.nix") {})
   ];
 
@@ -58,25 +46,12 @@
     xfconf.enable = true;
     steam = {
       enable = true;
-      gamescopeSession.enable = true;
+      #gamescopeSession.enable = true;
       package = pkgs.steam.override {
       extraPkgs = (pkgs: with pkgs; [
         gamemode
-        # additional packages...
-        # e.g. some games require python3
         ]);
       };
-    };
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting.enable = true;
-      ohMyZsh = {
-        enable = true;
-        plugins = ["git"];
-      };
-      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      histSize = 10000;
     };
   };
 }

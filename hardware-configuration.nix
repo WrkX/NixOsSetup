@@ -7,11 +7,24 @@
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    initrd = {
+      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+      kernelModules = [ "kvm-amd" ];
+      verbose = false;
+    };
+    extraModulePackages = [ ];
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/fda956ae-7d19-4e72-852c-d42494ccb8f2";
