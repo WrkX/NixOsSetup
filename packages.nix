@@ -6,7 +6,6 @@
     pkgs.discord-canary
     pkgs.dunst
     pkgs.fastfetch
-    pkgs.ghostty
     pkgs.goverlay
     pkgs.heroic
     pkgs.hyprcursor
@@ -17,10 +16,8 @@
     pkgs.libnotify
     pkgs.lxqt.lxqt-policykit
     pkgs.networkmanagerapplet
-    pkgs.ntfs3g
     pkgs.pamixer
     pkgs.pavucontrol
-    pkgs.playerctl
     pkgs.protonplus
     pkgs.waybar
     pkgs.winetricks

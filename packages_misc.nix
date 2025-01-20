@@ -3,23 +3,26 @@
 {
   environment.systemPackages = with pkgs; [
       pkgs.file-roller
-      pkgs.git
+      pkgs.fluent-reader
       pkgs.fzf
-      pkgs.zoxide
+      pkgs.ghostty
+      pkgs.git
       pkgs.imagemagick_light
       pkgs.libgccjit
       pkgs.neovim
+      pkgs.ntfs3g
       pkgs.p7zip
-      pkgs.python3Full
+      pkgs.playerctl
+      (pkgs.python3.withPackages (python-packages: with python-packages; [requests]))
       pkgs.recordbox
-      pkgs.streamrip
       pkgs.stow
+      pkgs.streamrip
       pkgs.sunshine
       pkgs.xdragon
       pkgs.yazi
       pkgs.zathura
-      pkgs.zathura
       pkgs.zed-editor
+      pkgs.zoxide
       pkgs.zsh-powerlevel10k
   ];
 
