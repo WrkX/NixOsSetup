@@ -23,10 +23,13 @@
     pkgs.winetricks
     pkgs.wineWowPackages.waylandFull
     pkgs.wlogout
+    pkgs.xdg-desktop-portal
     pkgs.xfce.thunar
     (pkgs.rofi.override { plugins = [ pkgs.rofi-games ]; })
     (pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/WrkX/nixpkgs/refs/heads/master/pkgs/by-name/ga/gamescope/gamescope.nix") {})
     (pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/WrkX/nixpkgs/refs/heads/master/pkgs/by-name/hy/hyprswitch/package.nix") {})#packages/hyprswitch/package.nix {})
+    #(pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/WrkX/nixpkgs/refs/heads/master/pkgs/by-name/xd/xdg-desktop-portal-filetermchooser/package.nix") {})#
+    (pkgs.callPackage packages/xdg-desktop-portal-filetermchooser/package.nix {})
     #(pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/nani8ot/nixpkgs/refs/heads/master/nixos/modules/config/xdg/portals/termfilechooser.nix") {})
   ];
 

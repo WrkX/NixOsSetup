@@ -5,18 +5,21 @@
       pkgs.file-roller
       pkgs.fluent-reader
       pkgs.fzf
-      pkgs.ghostty
+      pkgs.gapless
       pkgs.git
       pkgs.imagemagick_light
+      pkgs.jq
       pkgs.libgccjit
-      pkgs.neovim
       pkgs.ntfs3g
+      pkgs.ouch
       pkgs.p7zip
+      pkgs.picard
       pkgs.playerctl
-      (pkgs.python3.withPackages (python-packages: with python-packages; [requests]))
-      pkgs.recordbox
+      (pkgs.python3.withPackages (python-packages: with python-packages; [requests  pyfiglet]))
+      pkgs.qemu
+      pkgs.quickemu
+      pkgs.socat
       pkgs.stow
-      pkgs.streamrip
       pkgs.sunshine
       pkgs.xdragon
       pkgs.yazi
@@ -33,10 +36,11 @@
       syntaxHighlighting.enable = true;
       ohMyZsh = {
         enable = true;
-        plugins = ["git"];
+        plugins = ["git zoxide"];
       };
       promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       histSize = 10000;
     };
   };
+
 }

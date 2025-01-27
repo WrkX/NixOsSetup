@@ -32,7 +32,7 @@
   users.users.jonas = {
     isNormalUser = true;
     description = "Jonas";
-    extraGroups = ["networkmanager" "wheel" "gamemode"];
+    extraGroups = ["networkmanager" "wheel" "gamemode" "libvirtd"];
     shell = pkgs.zsh;
   };
 

@@ -81,5 +81,9 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    # Qemu
+    spice-vdagentd.enable = true;
+    qemuGuest.enable = true;
   };
+  virtualisation.spiceUSBRedirection.enable = true;
 }
