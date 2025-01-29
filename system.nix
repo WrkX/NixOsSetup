@@ -16,7 +16,7 @@
   nix = {
     gc = {
       automatic = true;
-      options = "--delete-older-than 15d";
+      options = "--delete-older-than 7d";
     };
     optimise = {
       automatic = true;
@@ -27,7 +27,7 @@
 
   system.autoUpgrade= {
     enable = true;
-    dates = "daily";
+    dates = "weekly";
   };
 
   networking = {
@@ -85,5 +85,6 @@
     spice-vdagentd.enable = true;
     qemuGuest.enable = true;
   };
+
   virtualisation.spiceUSBRedirection.enable = true;
 }

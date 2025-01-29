@@ -28,19 +28,4 @@
       pkgs.zoxide
       pkgs.zsh-powerlevel10k
   ];
-
-  programs = {
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting.enable = true;
-      ohMyZsh = {
-        enable = true;
-        plugins = ["git zoxide"];
-      };
-      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      histSize = 10000;
-    };
-  };
-
 }
