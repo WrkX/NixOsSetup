@@ -9,15 +9,24 @@
       ./packages.nix
       ./packages_misc.nix
       ./packages_work.nix
+      #./packages_flakes.nix
       ./system.nix
     ];
 
   time.timeZone = "Europe/Berlin";
 
-  services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "jonas";
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      theme = "chili";
+      wayland.enable = true;
+    };
+    autoLogin = {
+      enable = true;
+      user = "jonas";
+    };
+  };
+
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;

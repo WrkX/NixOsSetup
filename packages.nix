@@ -5,6 +5,7 @@
     config.allowUnfree = true;
     overlays = [
       (import ./overlays/rofi_games_overlay.nix)
+      (import ./overlays/sddm-chili-theme_overlay.nix)
     ];
   };
 
@@ -32,8 +33,9 @@
     pkgs.wineWowPackages.waylandFull
     pkgs.wlogout
     pkgs.xdg-desktop-portal
-    pkgs.xfce.thunar
-    (pkgs.rofi.override { plugins = [ pkgs.rofi-games ]; })
+    pkgs.fm
+    pkgs.sddm-chili-theme
+    (pkgs.rofi-wayland.override { plugins = [ pkgs.rofi-games ]; })
     (pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/WrkX/nixpkgs/refs/heads/master/pkgs/by-name/ga/gamescope/gamescope.nix") {})
     (pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/WrkX/nixpkgs/refs/heads/master/pkgs/by-name/hy/hyprswitch/package.nix") {})#packages/hyprswitch/package.nix {})
     (pkgs.callPackage (builtins.fetchurl "https://raw.githubusercontent.com/WrkX/nixpkgs/refs/heads/master/pkgs/by-name/xd/xdg-desktop-portal-termfilechooser/package.nix") {})

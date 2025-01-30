@@ -22,7 +22,7 @@
       automatic = true;
       dates = ["weekly"];
     };
-    settings.experimental-features = [ "nix-command" ];
+    settings.experimental-features = [ "nix-command" "flakes"];
   };
 
   system.autoUpgrade= {
