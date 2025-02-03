@@ -16,6 +16,7 @@
   nix = {
     gc = {
       automatic = true;
+      dates = "weekly";
       options = "--delete-older-than 7d";
     };
     optimise = {
@@ -23,6 +24,26 @@
       dates = ["weekly"];
     };
     settings.experimental-features = [ "nix-command" "flakes"];
+  };
+
+  services = {
+
+    printing.enable = true;
+    pulseaudio.enable = false;
+    gvfs.enable = true;
+    tumbler.enable = true;
+    spice-vdagentd.enable = true;
+    qemuGuest.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    xserver = {
+      enable = true;
+      excludePackages = [ pkgs.xterm ];
+    };
   };
 
   system.autoUpgrade= {
@@ -64,26 +85,6 @@
       capabilities = "cap_sys_admin+p";
       source = "${pkgs.sunshine}/bin/sunshine";
     };
-  };
-
-  services = {
-    xserver = {
-      enable = true;
-      excludePackages = [ pkgs.xterm ];
-    };
-    printing.enable = true;
-    pulseaudio.enable = false;
-    gvfs.enable = true;
-    tumbler.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-    # Qemu
-    spice-vdagentd.enable = true;
-    qemuGuest.enable = true;
   };
 
   virtualisation.spiceUSBRedirection.enable = true;
